@@ -23,8 +23,9 @@ $(document).ready(function () {
             url: PLACES_URL,
             type: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            data: JSON.stringify({}),
+            data: JSON.stringify({ amenities: Object.values(amenityObj) }),
             success: function (response) {
+                $('SECTION.places').empty();
                 for (const r of response) {
                     const article = ['<article>',
                         '<div class="title_box">',
@@ -49,5 +50,5 @@ $(document).ready(function () {
         });
     }
     fetchPlaces({});
-    
+
 });
