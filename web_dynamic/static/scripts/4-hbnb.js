@@ -23,7 +23,7 @@ $(document).ready(function () {
             url: PLACES_URL,
             type: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            data: JSON.stringify({ amenities: Object.values(amenityObj) }),
+            data: JSON.stringify({ amenities: Object.values(amenities) }),
             success: function (response) {
                 $('SECTION.places').empty();
                 for (const r of response) {
@@ -49,5 +49,6 @@ $(document).ready(function () {
             }
         });
     })
+
 
 });
