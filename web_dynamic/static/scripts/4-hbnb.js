@@ -56,7 +56,7 @@ $(document).ready(function () {
             url: PLACES_URL,
             type: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            data: JSON.stringify({ amenities: Object.values(amenities) }),
+            data: JSON.stringify({ amenities: Object.values(amenityIds) }),
             success: function (response) {
                 $('SECTION.places').empty();
                 for (const r of response) {
