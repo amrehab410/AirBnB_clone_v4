@@ -23,9 +23,8 @@ $(document).ready(function () {
             url: PLACES_URL,
             type: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            data: JSON.stringify({ amenities: Object.values(amenityIds) }),
+            data: JSON.stringify({}),
             success: function (response) {
-                $('SECTION.places').empty();
                 for (const r of response) {
                     const article = ['<article>',
                         '<div class="title_box">',
@@ -50,15 +49,15 @@ $(document).ready(function () {
         });
     }
     fetchPlaces({});
-    $('.searchBtn').click(function () {
+    $('[type=button]').click(function () {
         const PLACES_URL = `http://localhost:5001/api/v1/places_search/`;
+        $('.places').empty()
         $.ajax({
             url: PLACES_URL,
             type: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            data: JSON.stringify({ amenities: Object.values(amenityIds) }),
-            success: function (response) {
-                $('SECTION.places').empty();
+            data: JSON.stringify({ amenities: Object.keys(amenityIds) }),
+            success: function (response) {    
                 for (const r of response) {
                     const article = ['<article>',
                         '<div class="title_box">',
